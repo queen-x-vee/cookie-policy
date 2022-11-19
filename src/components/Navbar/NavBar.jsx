@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import DrawerComponent from "./Drawer";
 import flag from '../assets/Flags.png'
 import arrow from '../assets/arrow-down.png'
+import menuIcon from '../assets/Frame 16.png'
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +15,9 @@ const NavBar = () => {
 
   console.log(isOpen)
   return (
-    <Box backgroundColor="#F8FAFC">
+    <Box sx={{
+      backgroundColor:{xs:"#00296B" , sm:"#F8FAFC"}
+    }}>
     <Grid
       sx={{
         maxWidth: { xs: "90%", sm: "95%", md: "84%" },
@@ -25,7 +28,6 @@ const NavBar = () => {
       display="flex"
       margin="0px auto"
       flexDirection="row"
-      backgroundColor="#F8FAFC"
       
     >
       <Grid display="flex" justifyContent="center" alignItems="center">
@@ -34,8 +36,9 @@ const NavBar = () => {
             fontSize: { xs: "23px", sm: "17px", md: "24px",lg:"29px", xl:"34px" },
             lineHeight: { xs: "28px", sm: "40px" },
             fontWeight: { xs: "600", sm: "700" },
+            color:{xs:"#ffffff" ,sm:"#00296B"}
           }}
-          color="#00296B"
+        
           letterSpacing="-0.04em"
           role="heading"
         >
@@ -77,7 +80,7 @@ const NavBar = () => {
         cursor="pointer"
         onClick={() => setIsOpen(true)}
       >
-        <img src="assets/svg/MenuIcon.svg" alt="MenuIcon" />
+        <img src={menuIcon} alt="MenuIcon" />
       </Box>
       <DrawerComponent isOpen={isOpen} setIsOpen={HandleDrawerState} navItems={["Home", "Convert", "Currency Profile", "News", "Contact"]}/>
     </Grid>
